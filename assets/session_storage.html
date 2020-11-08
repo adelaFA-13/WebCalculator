@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <tittle>Session Storage</tittle>
+    </head>
+    <body>
+        <p>Anda sudah menekan tombol sebanyak <span id="count"></span>kali</p>
+        <button id="button">Click Disini</button>
+        <button id="Clear">Hapus Storage</button>
+    <!-- <script>
+        const cacheKey = "NUMBER";
+        if (typeof(Storage) !== "undifined"){
+
+            //pengecekan apakah datasession Storange dengan key Number tersedia atau belum
+            if (sessionStorage.getItem(cacheKey) === "undefined"){
+                //Jika belum maka akan atur dengan nilai awal yakni 0
+                sessionStorage.setItem(cacheKey,0);
+            }
+            const button = document.querySelector("#button");
+            const count = document.querySelector("#count");
+            button.addEventListener('click',function(event){
+                let number = sessionStorage.getItem(cacheKey);
+                number++;
+                sessionStorage.setItem(cacheKey, number);
+                count.innerText = sessionStorage.getItem(cacheKey);
+            })
+        } else {
+            alert("Browser tidak mendukung Web Storange")
+        }
+    </script> -->
+    <script>
+        const cacheKey ="NUMBER";
+        if (typeof(Storage) !=="undefined"){
+
+            if(localStorage.getItem(cacheKey) === "undefined"){
+                //Jika belum makan akn atur dengan nilai awal yakni 0
+                localStorage.setItem(cacheKey, 0);
+            }
+
+            const button = document.querySelector("#button");
+            const clearButton = document.querySelector("#Clear");
+            const count = document.querySelector("#count");
+            button.addEventListener('click', function(event){
+                let number =localStorage.getItem(cacheKey);
+                number++;
+                localStorage.setItem(cacheKey,number);
+                count.innerText = localStorage.getItem(cacheKey);
+            });
+
+            clearButton.addEventListener('click', function(event){
+                localStorage.removeItem(cacheKey);
+            });
+        } else {
+            alert("Browser tidak mendukung web Storage")
+        }
+    </script>
+    </body>
+</html>
